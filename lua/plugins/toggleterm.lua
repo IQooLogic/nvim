@@ -4,6 +4,7 @@ return {
         require("toggleterm").setup()
         vim.keymap.set('n', '<A-i>', ':ToggleTerm direction=horizontal<CR>')
         vim.keymap.set('n', '<A-f>', ':ToggleTerm direction=float<CR>')
+		vim.keymap.set('n', '<C-b>', ':TermExec cmd="goreleaser --clean"<CR>')
 
         function _G.set_terminal_keymaps()
         local opts = {buffer = 0}
