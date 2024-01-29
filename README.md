@@ -44,3 +44,9 @@ unzip and add to PATH
 https://go.dev/doc/install
 
 install golang
+
+----------------------------------------------
+
+# TODO
+- dap
+- git shortcuts
