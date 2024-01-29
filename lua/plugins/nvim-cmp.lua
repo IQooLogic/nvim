@@ -10,6 +10,8 @@ return {
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-cmdline",
+            "hrsh7th/cmp-nvim-lsp-signature-help",
+            "hrsh7th/cmp-nvim-lsp-document-symbol",
 		},
 		config = function()
 			local cmp = require("cmp")
@@ -32,9 +34,11 @@ return {
 					["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 				}),
 				sources = cmp.config.sources({
-					{ name = "luasnip", keyword_length = 2 }, -- For luasnip users.
-					{ name = "path" },
                     { name = "nvim_lsp", keyword_length = 1 },
+					{ name = "luasnip", keyword_length = 2 }, -- For luasnip users.
+                    { name = "nvim_lsp_signature_help" },
+                    { name = "nvim_lsp_document_symbol" },
+                    { name = "path" },
                     { name = "buffer", keyword_length = 3 },
 				}, {
 					{ name = "buffer" },
@@ -54,6 +58,7 @@ return {
 			cmp.setup.cmdline({ "/", "?" }, {
 				mapping = cmp.mapping.preset.cmdline(),
 				sources = {
+                    { name = "nvim_lsp_document_symbol" },
 					{ name = "buffer" },
 				},
 			})
