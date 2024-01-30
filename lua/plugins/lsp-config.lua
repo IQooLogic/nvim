@@ -44,6 +44,7 @@ return {
 			vim.keymap.set("n", "<leader>f", function()
 				vim.lsp.buf.format({ async = true })
 			end, opts)
+			vim.keymap.set("n", "<leader>e", ':lua vim.diagnostic.open_float(0, {scope="line"})<CR>', opts) -- show linter errors in floating panel
 		end,
 	},
 }

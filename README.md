@@ -49,10 +49,9 @@ install golang
 
 # TODO
 - dap
-- run tests
+- run tests (go.nvim)
 - git shortcuts
 - git diff, merge, rebase
 - better snippets
 - better switching files (harpoon)
-- go run main.go
-- fix too long suggestions/errors
+- todo support/search telescope
