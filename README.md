@@ -49,4 +49,5 @@ install golang
 
 # TODO
 - dap
+- run tests
 - git shortcuts
