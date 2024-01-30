@@ -55,3 +55,5 @@ install golang
 - better snippets
 - better switching files (harpoon)
 - todo support/search telescope
+- add keymaps for screen split
+- code folding
