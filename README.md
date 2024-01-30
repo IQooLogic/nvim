@@ -51,3 +51,8 @@ install golang
 - dap
 - run tests
 - git shortcuts
+- git diff, merge, rebase
+- better snippets
+- better switching files (harpoon)
+- go run main.go
+- fix too long suggestions/errors
