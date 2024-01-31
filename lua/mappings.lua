@@ -24,6 +24,7 @@ vim.opt.sidescrolloff = 5      -- min number of cols to keep between cursor and 
 vim.opt.splitbelow = true      -- ':new' ':split' below current
 vim.opt.splitright = true      -- ':vnew' ':vsplit' right of current
 vim.opt.wrap = true            -- line wrapping
+vim.opt.signcolumn = "yes"     -- always show sign column, needed for gitsigns.nvim
 
 vim.keymap.set("n", "<leader>w", ":write<CR>")
 vim.keymap.set("n", "<leader>q", ":quit<CR>")
