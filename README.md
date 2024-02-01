@@ -40,6 +40,11 @@ https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powers
 
 unzip and add to PATH
 
+## sed.exe
+https://gnuwin32.sourceforge.net/packages/sed.htm
+
+unzip and add to PATH
+
 ## golang (gopls)
 https://go.dev/doc/install
 
