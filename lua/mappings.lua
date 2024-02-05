@@ -14,9 +14,14 @@ vim.opt.showmatch = true       -- briefly jump to matching bracket if insert one
 -- vim.opt.spell = true           -- enable spell check
 vim.opt.termguicolors = true   -- enable 24bit colors
 vim.opt.foldenable = true      -- enable folding
-vim.opt.foldlevelstart = 10    -- open most folds by default
-vim.opt.foldnestmax = 10       -- # nested fold max
+-- vim.opt.foldlevelstart = 10    -- open most folds by default
+-- vim.opt.foldnestmax = 10       -- # nested fold max
 vim.opt.foldmethod = "indent"  -- fold based on indent level
+vim.o.foldcolumn = "1" -- '0' is not bad
+vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 vim.opt.breakindent = true     -- start wrapped lines indented
 vim.opt.linebreak = true       -- do not break words on line wrap
 vim.opt.scrolloff = 7          -- min number of lines to keep between cursor and screen edge
@@ -31,3 +36,8 @@ vim.keymap.set("n", "<leader>q", ":quit<CR>")
 vim.keymap.set("n", "<leader>qq", ":q!<CR>")
 
 vim.keymap.set("n", "<A-c>", ":noh<CR>") -- clears search highlighting
+
+if vim.fn.has("gui_running") then -- if qt then set font
+  -- vim.cmd("set guifont=JetBrainsMono\\ NFM:h10")
+  vim.opt.guifont = "JetBrains Mono:h14"
+end

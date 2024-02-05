@@ -1,6 +1,7 @@
 return {
 	{
 		"hrsh7th/nvim-cmp",
+		event = { "BufReadPost", "BufNewFile" },
 		dependencies = {
 			"neovim/nvim-lspconfig",
 			"L3MON4D3/LuaSnip",
@@ -12,10 +13,17 @@ return {
 			"hrsh7th/cmp-cmdline",
             "hrsh7th/cmp-nvim-lsp-signature-help",
             "hrsh7th/cmp-nvim-lsp-document-symbol",
+			"windwp/nvim-autopairs",
 		},
 		config = function()
 			local cmp = require("cmp")
 			require("luasnip.loaders.from_vscode").lazy_load()
+
+			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+			require("nvim-autopairs").setup()
+			-- Integrate nvim-autopairs with cmp
+			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+
 			cmp.setup({
 				snippet = {
 					expand = function(args)
