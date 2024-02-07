@@ -51,6 +51,34 @@ https://www.nerdfonts.com/font-downloads
 https://go.dev/doc/install
 > run installer
 
+### Go Tools
+```bash
+go install golang.org/x/tools/gopls@latest
+go install github.com/onsi/ginkgo/ginkgo@latest
+go install github.com/go-delve/delve/cmd/dlv@latest
+go install golang.org/x/tools/cmd/gorename@latest
+go install github.com/koron/iferr@latest
+go install github.com/cweill/gotests/gotests@latest
+go install github.com/josharian/impl@latest
+go install github.com/davidrjenni/reftools/cmd/fillswitch@latest
+go install golang.org/x/vuln/cmd/govulncheck@latest
+go install github.com/segmentio/golines@latest
+go install golang.org/x/tools/cmd/goimports@latest
+go install github.com/abenz1267/gomvp@latest
+go install github.com/searKing/golang/tools/cmd/go-enum@latest
+go install github.com/fatih/gomodifytags@latest
+go install golang.org/x/tools/cmd/gonew@latest
+go install gotest.tools/gotestsum@latest
+go install golang.org/x/tools/cmd/guru@latest
+go install github.com/tmc/json-to-struct@latest
+go install github.com/kyoh86/richgo@latest
+go install github.com/golang/mock/mockgen@latest
+go install mvdan.cc/gofumpt@latest
+go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.55.2
+go install golang.org/x/tools/cmd/callgraph@latest
+go install github.com/shiba6v/reftools/cmd/fillstruct@latest
+```
+
 ----------------------------------------------
 
 # TODO
