@@ -90,3 +90,4 @@ go install github.com/shiba6v/reftools/cmd/fillstruct@latest
 - better switching files (harpoon)
 - todo support/search telescope
 - add keymaps for screen split
+- fast replacing text shortcuts
