@@ -10,6 +10,7 @@ return {
 				show_start = false,
 				show_end = false,
 			},
+<<<<<<< HEAD
 			exclude = {
 				filetypes = {
 					"lspinfo",
@@ -21,6 +22,8 @@ return {
 					"",
 				},
 			},
+=======
+>>>>>>> 975f601 (go debugger)
 		})
 	end,
 }
