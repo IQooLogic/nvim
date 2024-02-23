@@ -15,13 +15,13 @@ return {
         vim.api.nvim_create_autocmd("BufWritePre", {
             pattern = "*.go",
             callback = function()
-                print("FORMATTING ...")
                 require("go.format").goimport()
             end,
             group = format_sync_grp,
         })
 
         vim.keymap.set("n", "<leader>ft", require("go.format").goimport, {})
+		vim.keymap.set("n", "<C-r>", ':vnew | .! go run #<CR>') -- run current file and show output in vertical buffer
     end,
     event = { "CmdlineEnter" },
     ft = { "go", "gomod", "gowork", "gosum", "goimpl" },
