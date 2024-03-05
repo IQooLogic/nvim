@@ -46,6 +46,9 @@ return {
 				vim.lsp.buf.format({ async = true })
 			end, opts)
 			vim.keymap.set("n", "<leader>e", ':lua vim.diagnostic.open_float(0, {scope="line"})<CR>', opts) -- show linter errors in floating panel
+			vim.keymap.set("n", "<C-f>", vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+			vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
+			vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
 		end,
 	},
 }
