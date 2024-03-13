@@ -67,17 +67,35 @@ return {
 			end)
 		end,
 	},
+	-- {
+	-- 	"williamboman/mason-nvim-dap.nvim",
+	-- 	dependencies = {
+	-- 		"williamboman/mason.nvim",
+	-- 		"mfussenegger/nvim-dap",
+	-- 		"jay-babu/mason-nvim-dap.nvim",
+	-- 	},
+	-- 	config = function()
+	-- 		require("mason-nvim-dap").setup({
+	-- 			ensure_installed = {
+	-- 				"delve", "gotests", "java-debug-adapter", "java-test", "vscode-java-decompiler"
+	-- 			},
+	-- 		})
+	-- 	end,
+	-- },
 	{
-		"williamboman/mason-nvim-dap.nvim",
+		"jay-babu/mason-nvim-dap.nvim",
 		dependencies = {
 			"williamboman/mason.nvim",
 			"mfussenegger/nvim-dap",
-			"jay-babu/mason-nvim-dap.nvim",
 		},
 		config = function()
 			require("mason-nvim-dap").setup({
 				ensure_installed = {
-					"delve", "gotests", "java-debug-adapter", "java-test", "vscode-java-decompiler"
+					"delve",
+					"gotests",
+					"java-debug-adapter",
+					"java-test",
+					"vscode-java-decompiler",
 				},
 			})
 		end,
