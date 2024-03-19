@@ -76,7 +76,9 @@ return {
 		event = { "BufReadPost" },
 		config = function()
 			require("neodev").setup({})
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+			local cap = vim.lsp.protocol.make_client_capabilities()
+			local capabilities = require("cmp_nvim_lsp").default_capabilities(cap)
 
 			local lspconfig = require("lspconfig")
 			lspconfig.lua_ls.setup({

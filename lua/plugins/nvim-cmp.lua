@@ -46,6 +46,7 @@ return {
 					{ name = "luasnip", keyword_length = 2 }, -- For luasnip users.
 					{ name = "nvim_lsp_signature_help" },
 					{ name = "nvim_lsp_document_symbol" },
+					{ name = "treesitter" },
 					{ name = "path" },
 					{ name = "buffer", keyword_length = 3 },
 				}, {
