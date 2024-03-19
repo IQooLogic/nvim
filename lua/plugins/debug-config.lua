@@ -68,21 +68,6 @@ return {
 			end)
 		end,
 	},
-	-- {
-	-- 	"williamboman/mason-nvim-dap.nvim",
-	-- 	dependencies = {
-	-- 		"williamboman/mason.nvim",
-	-- 		"mfussenegger/nvim-dap",
-	-- 		"jay-babu/mason-nvim-dap.nvim",
-	-- 	},
-	-- 	config = function()
-	-- 		require("mason-nvim-dap").setup({
-	-- 			ensure_installed = {
-	-- 				"delve", "gotests", "java-debug-adapter", "java-test", "vscode-java-decompiler"
-	-- 			},
-	-- 		})
-	-- 	end,
-	-- },
 	{
 		"jay-babu/mason-nvim-dap.nvim",
 		dependencies = {
@@ -98,6 +83,7 @@ return {
 					"java-debug-adapter",
 					"java-test",
 					"vscode-java-decompiler",
+					"codelldb",
 				},
 			})
 		end,
