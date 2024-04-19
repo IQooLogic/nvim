@@ -30,12 +30,13 @@ vim.opt.splitbelow = true      -- ':new' ':split' below current
 vim.opt.splitright = true      -- ':vnew' ':vsplit' right of current
 vim.opt.wrap = true            -- line wrapping
 vim.opt.signcolumn = "yes"     -- always show sign column, needed for gitsigns.nvim
+vim.o.background = "dark"
 
 vim.keymap.set("n", "<leader>w", ":write<CR>")
 vim.keymap.set("n", "<leader>q", ":quit<CR>")
 vim.keymap.set("n", "<leader>qq", ":q!<CR>")
 
-vim.keymap.set("n", "<A-c>", ":noh<CR>") -- clears search highlighting
+vim.keymap.set("n", "<Esc>", "<cmd>noh<CR>") -- clears search highlighting
 
 if vim.fn.has("gui_running") then -- if qt then set font
   -- vim.cmd("set guifont=JetBrainsMono\\ NFM:h10")
