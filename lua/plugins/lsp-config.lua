@@ -91,8 +91,11 @@ return {
 					},
 				},
 			})
-			lspconfig.gopls.setup({
-				capabilities = capabilities,
+            -- table.insert(capabilities, root_dir)
+			lspconfig.gopls.setup({ capabilities = capabilities,
+                root_dir = function ()
+                    return vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1])
+                end
 			})
 
 			lspconfig.jdtls.setup({
