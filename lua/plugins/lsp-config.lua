@@ -15,7 +15,7 @@ return {
 		config = function()
 			require("mason-lspconfig").setup({
 				automatic_installation = true,
-				ensure_installed = { "lua_ls", "gopls", "jdtls", "rust_analyzer" },
+				ensure_installed = { "lua_ls", "gopls", "jdtls", "rust_analyzer", "zls", "elixirls" },
 			})
 		end,
 	},
@@ -91,15 +91,31 @@ return {
 					},
 				},
 			})
-            -- table.insert(capabilities, root_dir)
-			lspconfig.gopls.setup({ capabilities = capabilities,
-                root_dir = function ()
-                    return vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1])
-                end
+			-- table.insert(capabilities, root_dir)
+			lspconfig.gopls.setup({
+				capabilities = capabilities,
+				root_dir = function()
+					-- return vim.fn.getcwd()
+					return vim.fs.dirname(
+						vim.fs.find({ "gradlew", ".git", "mvnw", "go.mod", "pom.xml" }, { upward = true })[1]
+					)
+				end,
 			})
 
 			lspconfig.jdtls.setup({
 				capabilities = capabilities,
+			})
+
+			lspconfig.zls.setup({
+				capabilities = capabilities,
+			})
+
+			lspconfig.elixirls.setup({
+				cmd = { "elixir-ls" },
+				capabilities = capabilities,
+                root_dir = function ()
+                    return vim.fn.getcwd()
+                end
 			})
 
 			local opts = {}
