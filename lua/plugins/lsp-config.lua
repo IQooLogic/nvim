@@ -96,26 +96,46 @@ return {
 				capabilities = capabilities,
 				root_dir = function()
 					-- return vim.fn.getcwd()
-					return vim.fs.dirname(
-						vim.fs.find({ "gradlew", ".git", "mvnw", "go.mod", "pom.xml" }, { upward = true })[1]
-					)
+					return vim.fs.dirname(vim.fs.find({ ".git", "go.mod" }, { upward = true })[1])
 				end,
 			})
 
 			lspconfig.jdtls.setup({
 				capabilities = capabilities,
+				root_dir = function()
+					-- return vim.fn.getcwd()
+					return vim.fs.dirname(vim.fs.find({ "gradlew", ".git", "mvnw", "pom.xml" }, { upward = true })[1])
+				end,
 			})
 
 			lspconfig.zls.setup({
 				capabilities = capabilities,
+				filetypes = { "zig", "zir" },
+				root_dir = function()
+					return vim.fs.dirname(vim.fs.find({ "zls.json", "build.zig", ".git" }, { upward = true })[1])
+				end,
+				single_file_support = true,
 			})
 
 			lspconfig.elixirls.setup({
 				cmd = { "elixir-ls" },
+				filetypes = { "elixir", "eelixir", "heex", "surface" },
 				capabilities = capabilities,
-                root_dir = function ()
-                    return vim.fn.getcwd()
-                end
+				root_dir = function(fname)
+					-- return vim.fn.getcwd()
+					local matches = vim.fs.find({ "mix.exs" }, { upward = true, limit = 2, path = fname })
+					local child_or_root_path, maybe_umbrella_path = unpack(matches)
+					local root_dir = vim.fs.dirname(maybe_umbrella_path or child_or_root_path)
+
+					return root_dir
+				end,
+			})
+
+			lspconfig.gleam.setup({
+				cmd = { "gleam", "lsp" },
+				filetypes = { "gleam" },
+				root_dir = lspconfig.util.root_pattern("gleam.toml", ".git"),
+				capabilities = capabilities,
 			})
 
 			local opts = {}
