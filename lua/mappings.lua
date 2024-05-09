@@ -32,11 +32,11 @@ vim.opt.wrap = true            -- line wrapping
 vim.opt.signcolumn = "yes"     -- always show sign column, needed for gitsigns.nvim
 vim.o.background = "dark"
 
-vim.keymap.set("n", "<leader>w", ":write<CR>")
-vim.keymap.set("n", "<leader>q", ":quit<CR>")
-vim.keymap.set("n", "<leader>qq", ":q!<CR>")
+vim.keymap.set("n", "<leader>w", ":write<CR>", { desc = "save file" })
+vim.keymap.set("n", "<leader>q", ":quit<CR>", { desc = "quit/close" })
+vim.keymap.set("n", "<leader>qq", ":q!<CR>", { desc = "quit without saving" })
 
-vim.keymap.set("n", "<Esc>", "<cmd>noh<CR>") -- clears search highlighting
+vim.keymap.set("n", "<Esc>", "<cmd>noh<CR>", { desc = "clear search highlights" }) -- clears search highlighting
 
 if vim.fn.has("gui_running") then -- if qt then set font
   -- vim.cmd("set guifont=JetBrainsMono\\ NFM:h10")

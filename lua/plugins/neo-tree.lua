@@ -6,7 +6,7 @@ return {
 		"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
 		"MunifTanjim/nui.nvim",
 	},
-	opts = {},
+	opts = { desc = "" },
 	config = function()
 		require("neo-tree").setup({
 			source_selector = {
@@ -70,9 +70,9 @@ return {
 			},
 		})
 
-		vim.keymap.set("n", "<leader>n", ":Neotree filesystem reveal left<CR>", {})
-		vim.keymap.set("n", "<C-n>", ":Neotree toggle left<CR>", {})
-		vim.keymap.set("n", "<leader>nr", ":Neotree filesystem reveal right<CR>", {})
-		vim.keymap.set("n", "<leader>nt", ":Neotree toggle<CR>", {})
+		vim.keymap.set("n", "<leader>n", ":Neotree filesystem reveal left<CR>", { desc = "open neotree left" })
+		vim.keymap.set("n", "<C-n>", ":Neotree toggle left<CR>", { desc = "toggle neotree left" })
+		vim.keymap.set("n", "<leader>nr", ":Neotree filesystem reveal right<CR>", { desc = "open neotree right" })
+		vim.keymap.set("n", "<leader>nt", ":Neotree toggle<CR>", { desc = "toggle neotree" })
 	end,
 }

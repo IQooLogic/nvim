@@ -26,7 +26,7 @@ return {
 			end,
 		})
 
-		vim.keymap.set("n", "zR", require("ufo").openAllFolds)
-		vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+		vim.keymap.set("n", "zR", require("ufo").openAllFolds, { desc = "open all folds" })
+		vim.keymap.set("n", "zM", require("ufo").closeAllFolds, { desc = "close all folds" })
 	end,
 }

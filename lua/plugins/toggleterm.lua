@@ -1,26 +1,25 @@
 return {
-    "akinsho/toggleterm.nvim",
-    version = "*",
-    config = function()
-        require("toggleterm").setup()
-        vim.keymap.set("n", "<A-i>", ":ToggleTerm direction=horizontal<CR>")
-        vim.keymap.set("n", "<A-f>", ":ToggleTerm direction=float<CR>")
-        vim.keymap.set("n", "<C-b>", ':TermExec cmd="goreleaser --clean"<CR>')
-        vim.keymap.set("n", "<C-t>", ':TermExec cmd="go run %"<CR>') -- run current file in split terminal
+	"akinsho/toggleterm.nvim",
+	version = "*",
+	config = function()
+		require("toggleterm").setup()
+		vim.keymap.set("n", "<A-i>", ":ToggleTerm direction=horizontal<CR>", { desc = "toggle term horizontaly" })
+		vim.keymap.set("n", "<A-f>", ":ToggleTerm direction=float<CR>", { desc = "toggle term float" })
+		vim.keymap.set("n", "<C-b>", ':TermExec cmd="goreleaser --clean"<CR>', { desc = "run goreleaser --clean" })
+		vim.keymap.set("n", "<C-t>", ':TermExec cmd="go run %"<CR>', { desc = "go run current buffer split term" })
 
-        function _G.set_terminal_keymaps()
-            local opts = { buffer = 0 }
-            vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
-            vim.keymap.set("t", "<esc><esc>", "<Cmd>ToggleTerm<CR>", opts)
-            vim.keymap.set("t", "jk", [[<C-\><C-n>]], opts)
-            vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
-            vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
-            vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
-            vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts)
-            vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]], opts)
-        end
+		function _G.set_terminal_keymaps()
+			vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], { buffer = 0, desc = "" })
+			vim.keymap.set("t", "<esc><esc>", "<Cmd>ToggleTerm<CR>", { buffer = 0, desc = "" })
+			vim.keymap.set("t", "jk", [[<C-\><C-n>]], { buffer = 0, desc = "" })
+			vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], { buffer = 0, desc = "" })
+			vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], { buffer = 0, desc = "" })
+			vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], { buffer = 0, desc = "" })
+			vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], { buffer = 0, desc = "" })
+			vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]], { buffer = 0, desc = "" })
+		end
 
-        -- if you only want these mappings for toggle term use term://*toggleterm#* instead
-        vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
-    end,
+		-- if you only want these mappings for toggle term use term://*toggleterm#* instead
+		vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
+	end,
 }

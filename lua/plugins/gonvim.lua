@@ -20,8 +20,8 @@ return {
             group = format_sync_grp,
         })
 
-        vim.keymap.set("n", "<leader>ft", require("go.format").goimport, {})
-		vim.keymap.set("n", "<C-r>", ':vnew | .! go run #<CR>') -- run current file and show output in vertical buffer
+        vim.keymap.set("n", "<leader>ft", require("go.format").goimport, { desc = "go format file" })
+		vim.keymap.set("n", "<C-r>", ':vnew | .! go run #<CR>', { desc = "go run vertical buffer output" }) -- run current file and show output in vertical buffer
     end,
     event = { "CmdlineEnter" },
     ft = { "go", "gomod", "gowork", "gosum", "goimpl" },

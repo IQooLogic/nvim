@@ -24,49 +24,6 @@ return {
 		version = "^4",
 		ft = { "rust" },
 	},
-	-- archived
-	-- {
-	-- 	"simrat39/rust-tools.nvim",
-	-- 	config = function()
-	-- 		local rt = require("rust-tools")
-	-- 		rt.setup({
-	-- 			tools = {
-	-- 				runnables = {
-	-- 					use_telescope = true,
-	-- 				},
-	-- 				inlay_hints = {
-	-- 					auto = true,
-	-- 					show_parameter_hints = true,
-	-- 					parameter_hints_prefix = "",
-	-- 					other_hints_prefix = "",
-	-- 				},
-	-- 			},
-	--
-	-- 			-- all the opts to send to nvim-lspconfig
-	-- 			-- these override the defaults set by rust-tools.nvim
-	-- 			-- see https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#rust_analyzer
-	-- 			server = {
-	-- 				-- on_attach is a callback called when the language server attachs to the buffer
-	-- 				on_attach = function(_, bufnr)
-	-- 					-- Hover actions
-	-- 					vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-	-- 					-- Code action groups
-	-- 					vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-	-- 				end,
-	-- 				settings = {
-	-- 					-- to enable rust-analyzer settings visit:
-	-- 					-- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
-	-- 					["rust-analyzer"] = {
-	-- 						-- enable clippy on save
-	-- 						checkOnSave = {
-	-- 							command = "clippy",
-	-- 						},
-	-- 					},
-	-- 				},
-	-- 			},
-	-- 		})
-	-- 	end,
-	-- },
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
@@ -138,25 +95,29 @@ return {
 				capabilities = capabilities,
 			})
 
-			local opts = {}
-			vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-			vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-			vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-			vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
-			vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
-			vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
+			vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "jump to declaration" })
+			vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "jump to definition" })
+			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "symbol info" })
+			vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "show symbol implementations" })
+			vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, { desc = "show symbol signature info" })
+			vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, { desc = "" })
+			vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, { desc = "" })
 			vim.keymap.set("n", "<leader>wl", function()
 				print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-			end, opts)
-			vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, opts)
-			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
-			vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+			end, { desc = "" })
+			vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, { desc = "jump to type definition" })
+			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "rename symbol" })
+			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "show symbol code actions" })
+			vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "show symbol references/usages" })
 			vim.keymap.set("n", "<leader>f", function()
 				vim.lsp.buf.format({ async = true })
-			end, opts)
-			vim.keymap.set("n", "<leader>e", ':lua vim.diagnostic.open_float(0, {scope="line"})<CR>', opts) -- show linter errors in floating panel
+			end, { desc = "format file" })
+			vim.keymap.set(
+				"n",
+				"<leader>e",
+				':lua vim.diagnostic.open_float(0, {scope="line"})<CR>',
+				{ desc = "show list of errors" }
+			)
 			vim.keymap.set("n", "<C-f>", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 			vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
 			vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
