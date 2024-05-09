@@ -12,8 +12,6 @@ return {
 					null_ls.builtins.formatting.google_java_format,
 				},
 			})
-
-			vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, { desc = "format file" })
 		end,
 	},
 	{
