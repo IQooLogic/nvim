@@ -6,15 +6,23 @@ return {
 		config = function()
 			local builtin = require("telescope.builtin")
 
+			local buffers = function()
+				builtin.buffers({
+					ignore_current_buffer = true,
+					sort_mru = true,
+				})
+			end
+
 			vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "fuzzy search file names" })
 			vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "fuzzy search in files" })
 			vim.keymap.set(
 				"n",
 				"<leader>fb",
-				builtin.buffers,
+				buffers,
 				{ silent = true, desc = "fuzzy search open buffers" }
 			)
-            vim.keymap.set("n", "<leader>fo", builtin.oldfiles, { desc = "fuzzy search opened files" })
+			vim.keymap.set("n", "<leader>fo", builtin.oldfiles, { desc = "fuzzy search opened files" })
+			vim.keymap.set("n", "<leader>fgg", builtin.git_files, { desc = "fuzzy search git files" })
 			vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "help tags" })
 			vim.keymap.set("n", "<leader>fr", builtin.lsp_references, { desc = "lsp references/usages" })
 			vim.keymap.set("n", "<leader>fi", builtin.lsp_implementations, { desc = "lsp implementations" })
