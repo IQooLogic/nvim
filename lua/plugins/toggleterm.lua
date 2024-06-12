@@ -4,6 +4,7 @@ return {
 	config = function()
 		require("toggleterm").setup()
 		vim.keymap.set("n", "<A-i>", ":ToggleTerm direction=horizontal<CR>", { desc = "toggle term horizontaly" })
+		vim.keymap.set("n", "<A-v>", ":ToggleTerm size=60 direction=vertical<CR>", { desc = "toggle term vertically" })
 		vim.keymap.set("n", "<A-f>", ":ToggleTerm direction=float<CR>", { desc = "toggle term float" })
 		vim.keymap.set("n", "<C-b>", ':TermExec cmd="goreleaser --clean"<CR>', { desc = "run goreleaser --clean" })
 		vim.keymap.set("n", "<C-t>", ':TermExec cmd="go run %"<CR>', { desc = "go run current buffer split term" })

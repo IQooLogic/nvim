@@ -31,6 +31,9 @@ vim.opt.splitright = true      -- ':vnew' ':vsplit' right of current
 vim.opt.wrap = true            -- line wrapping
 vim.opt.signcolumn = "yes"     -- always show sign column, needed for gitsigns.nvim
 vim.o.background = "dark"
+vim.opt.compatible = false
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 vim.keymap.set("n", "<leader>w", ":write<CR>", { desc = "save file" })
 vim.keymap.set("n", "<leader>q", ":quit<CR>", { desc = "quit/close" })
@@ -42,3 +45,12 @@ if vim.fn.has("gui_running") then -- if qt then set font
   -- vim.cmd("set guifont=JetBrainsMono\\ NFM:h10")
   vim.opt.guifont = "JetBrains Mono:h14"
 end
+
+-- Highlight yanked text for a moment
+vim.api.nvim_create_augroup("YankHighlight", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank { higroup = "IncSearch", timeout = 200 }
+  end,
+  group = "YankHighlight",
+})

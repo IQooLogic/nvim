@@ -6,7 +6,12 @@ return {
 		"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
 		"MunifTanjim/nui.nvim",
 	},
-	opts = { desc = "" },
+	opts = {
+        desc = "",
+        filesystem = {
+            hijack_netrw_behavior = "disabled"
+        }
+    },
 	config = function()
 		require("neo-tree").setup({
 			source_selector = {
@@ -43,6 +48,7 @@ return {
 				highlight_separator_active = "NeoTreeTabSeparatorActive", -- string
 			},
 			filesystem = {
+                hijack_netrw_behavior = "disabled",
 				filtered_items = {
 					visible = true, -- when true, they will just be displayed differently than normal items
 					show_hidden_count = false,
