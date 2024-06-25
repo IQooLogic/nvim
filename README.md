@@ -24,6 +24,7 @@ https://luals.github.io/#neovim-install
 
 ## luarocks
 $ sudo apt install python-is-python3
+$ sudo apt install libreadline-dev
 http://luarocks.github.io/luarocks/releases
 > unzip and add to PATH
 
