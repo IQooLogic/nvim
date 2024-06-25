@@ -22,6 +22,11 @@ https://github.com/JohnnyMorganz/StyLua/releases
 https://luals.github.io/#neovim-install
 > unzip and add to PATH
 
+## luarocks
+$ sudo apt install python-is-python3
+http://luarocks.github.io/luarocks/releases
+> unzip and add to PATH
+
 ## ripgrep
 https://github.com/BurntSushi/ripgrep/releases
 > unzip and add to PATH if PATH not detected copy to C:\Users\iqool\AppData\Local\nvim
