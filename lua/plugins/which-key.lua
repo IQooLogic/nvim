@@ -28,8 +28,6 @@ return {
 				g = true, -- bindings for prefixed with g
 			},
 		},
-		-- add operators that will trigger motion and text object completion
-		-- to enable all native operators, set the preset / operators plugin above
 		icons = {
 			breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
 			separator = "➜", -- symbol used between a key and it's label
@@ -61,8 +59,7 @@ return {
 		},
 		show_help = true, -- show a help message in the command line for using WhichKey
 		show_keys = true, -- show the currently pressed key and its label as a message in the command line
-		triggers = false, -- automatically setup triggers
-		-- triggers = {"<leader>"} -- or specifiy a list manually
+		-- disable the WhichKey popup for certain buf types and file types.
 		-- Disabled by default for Telescope
 		disable = {
 			buftypes = {},
