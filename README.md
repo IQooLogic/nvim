@@ -23,12 +23,14 @@ https://luals.github.io/#neovim-install
 > unzip and add to PATH
 
 ## luarocks
+```bash
 $ sudo apt install python-is-python3
 $ sudo apt install libreadline-dev
 $ sudo apt install lua5.1
 $ apt install liblua5.1-dev
 luarocks --lua-version=5.1 config --local lua_dir /usr/bin
 luarocks --lua-version=5.1 config --local variables.LUA_INCDIR /usr/include/lua5.1
+```
 http://luarocks.github.io/luarocks/releases
 > unzip and add to PATH
 
