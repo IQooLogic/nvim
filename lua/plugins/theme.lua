@@ -12,7 +12,7 @@ return {
 				italic_comments = false,
 
 				-- Modern borderless telescope theme
-				borderless_telescope = false,
+                borderless_pickers = false,
 
 				-- Set terminal colors used in `:terminal`
 				terminal_colors = true,

@@ -8,8 +8,9 @@ return {
 
 			local buffers = function()
 				builtin.buffers({
-					ignore_current_buffer = true,
+					ignore_current_buffer = false,
 					sort_mru = true,
+                    sort_lastused = true,
 				})
 			end
 
