@@ -34,6 +34,7 @@ vim.o.background = "dark"
 vim.opt.compatible = false
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+vim.o.winborder = 'rounded'
 
 vim.keymap.set("n", "<leader>w", ":write<CR>", { desc = "save file" })
 vim.keymap.set("n", "<leader>q", ":quit<CR>", { desc = "quit/close" })
