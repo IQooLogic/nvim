@@ -55,3 +55,38 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
   group = "YankHighlight",
 })
+
+-- Custom command to obfuscate line from cursor
+_G.runObfuscator = function ()
+    local cursor_pos = vim.api.nvim_win_get_cursor(0)
+    local row = cursor_pos[1] - 1
+    local col = cursor_pos[2]
+
+    local current_line = vim.api.nvim_get_current_line()
+
+    local text_to_obfuscate = string.sub(current_line, col + 1)
+
+    local output = vim.fn.system('echo ' .. vim.fn.shellescape(text_to_obfuscate))
+
+    output = output:gsub("\n$", "")
+
+    local text_before_cursor = string.sub(current_line, 1, col)
+    local new_line = text_before_cursor .. output
+
+    vim.api.nvim_set_current_line(new_line)
+    vim.api.nvim_win_set_cursor(0, {row + 1, #text_before_cursor + #output})
+end
+
+vim.api.nvim_create_user_command(
+    "Obfuscate",
+    function ()
+        _G.runObfuscator()
+    end,
+    {
+        desc = 'Obfuscate current line from cursor'
+    }
+)
+
+vim.api.nvim_set_keymap('n', '<leader>o', ':Obfuscate<CR>', {noremap = true, silent = true, desc = 'Replace surrent line from cursor'})
+
+local password = "my_password"
