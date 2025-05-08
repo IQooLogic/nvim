@@ -2,12 +2,7 @@ return {
 	{
 		"williamboman/mason.nvim",
 		config = function()
-			require("mason").setup({
-				registries = {
-					-- "github:nvim-java/mason-registry",
-					"github:mason-org/mason-registry",
-				},
-			})
+			require("mason").setup()
 		end,
 	},
 	{
@@ -32,7 +27,7 @@ return {
 		},
 		event = { "BufReadPost" },
 		config = function()
-			require("neodev").setup({})
+			require("neodev").setup()
 
 			local cap = vim.lsp.protocol.make_client_capabilities()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities(cap)
@@ -81,7 +76,7 @@ return {
 				root_dir = function(fname)
 					-- return vim.fn.getcwd()
 					local matches = vim.fs.find({ "mix.exs" }, { upward = true, limit = 2, path = fname })
-					local child_or_root_path, maybe_umbrella_path = unpack(matches)
+					local child_or_root_path, maybe_umbrella_path = table.unpack(matches)
 					local root_dir = vim.fs.dirname(maybe_umbrella_path or child_or_root_path)
 
 					return root_dir
@@ -119,8 +114,8 @@ return {
 				{ desc = "show list of errors" }
 			)
 			vim.keymap.set("n", "<C-f>", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
-			vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
-			vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
+			vim.keymap.set("n", "[d", function() vim.diagnostic.jump({count=-1, float=true}) end, { desc = "Go to previous [D]iagnostic message" })
+			vim.keymap.set("n", "]d", function() vim.diagnostic.jump({count=1, float=true}) end, { desc = "Go to next [D]iagnostic message" })
 		end,
 	},
 }

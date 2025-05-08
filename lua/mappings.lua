@@ -89,4 +89,4 @@ vim.api.nvim_create_user_command(
 
 vim.api.nvim_set_keymap('n', '<leader>o', ':Obfuscate<CR>', {noremap = true, silent = true, desc = 'Replace surrent line from cursor'})
 
-local password = "my_password"
+-- local password = "my_password"
